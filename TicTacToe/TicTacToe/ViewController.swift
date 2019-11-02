@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         let xmarkImage = UIImage(systemName: "xmark", withConfiguration: config)
         let circleImage = UIImage(systemName: "circle", withConfiguration: config)
         
-        if twoDArray[gameButton.row][gameButton.col] == "_" {
+        //if twoDArray[gameButton.row][gameButton.col] == "_" {
         //  allow the button to be pressed else dont.
         
         if player == 1 {
@@ -45,12 +45,14 @@ class ViewController: UIViewController {
             player = 1
             playerTurn.text = "player one turn"
         }
-        
-        } else {
-            gameButton.isEnabled = false 
-        }
+//
+//        } else {
+//            gameButton.isEnabled = false
+//        }
         //print(" Row: \(gameButton.row) and Col: \(gameButton.col) were selected")
+        gameButton.isEnabled = false
         print(twoDArray)
+        
     }
    // func checkWinner
     // if there are 3 in a row
