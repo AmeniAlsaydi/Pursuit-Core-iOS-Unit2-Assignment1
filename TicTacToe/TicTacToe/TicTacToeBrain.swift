@@ -12,7 +12,8 @@ import UIKit
 class TicTacToeBrain {
     var buttonMattrix = [["_","_","_"],["_","_","_"],["_","_","_"]]
     var player = 1
-    // var playerTurn = ""
+    var playerScoreX = 0
+    var playerScoreO = 0
     
     func populateMattrix(_ gameButton: GameButton) -> String {
         
@@ -51,6 +52,7 @@ class TicTacToeBrain {
                 buttonMattrix[i][2] == "X" {
                 print(" X wins ")
                 winner = "PLAYER ONE WINS 🥳"
+                playerScoreX += 1
                 
             }
             
@@ -62,6 +64,7 @@ class TicTacToeBrain {
                 buttonMattrix[i][2] == "O" {
                 print(" O wins ")
                 winner = "PLAYER TWO WINS 🥳"
+                playerScoreO += 1
                 
             }
         }
@@ -71,12 +74,14 @@ class TicTacToeBrain {
             buttonMattrix[2][2] == "X" {
             print(" X wins ")
             winner = "PLAYER ONE WINS 🥳"
+            playerScoreX += 1
             
         } else if buttonMattrix[0][0] == "O" &&
             buttonMattrix[1][1] == "O" &&
             buttonMattrix[2][2] == "O" {
             print(" O wins ")
             winner = "PLAYER TWO WINS 🥳"
+            playerScoreO += 1
             
         }
             
@@ -85,12 +90,16 @@ class TicTacToeBrain {
             buttonMattrix[0][2] == "O" {
             print(" O wins ")
             winner = "PLAYER TWO WINS 🥳"
+            playerScoreO += 1
+            
             
         } else if buttonMattrix[2][0] == "X" &&
             buttonMattrix[1][1] == "X" &&
             buttonMattrix[0][2] == "X" {
             print(" O wins ")
             winner = "PLAYER ONE WINS 🥳"
+            playerScoreX += 1
+            
         }
         
         return winner

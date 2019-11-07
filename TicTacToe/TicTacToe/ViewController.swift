@@ -12,9 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var gameButtons: [GameButton]!
     @IBOutlet weak var playerTurn: UILabel!
-    var twoDArray = [["_","_","_"],["_","_","_"],["_","_","_"]]
+    @IBOutlet weak var player1Score: UILabel!
+    @IBOutlet weak var player2Score: UILabel!
+    @IBOutlet weak var boardImage: UIImageView!
+    
     var turn: String = ""
     var winning: String = ""
+    
     
     
     var game = TicTacToeBrain() 
@@ -22,6 +26,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+        
+        boardImage.layer.cornerRadius = 25;
+        // boardImage.clipsToBounds = YES;
+        
+        player1Score.text = "Player One Score: \(game.playerScoreX)"
+        player2Score.text = "Player Two Score: \(game.playerScoreO)"
   }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
@@ -42,9 +52,10 @@ class ViewController: UIViewController {
         }
         gameButton.isEnabled = false
         print(game.buttonMattrix)
+        
+        player1Score.text = "Player One Score: \(game.playerScoreX)"
+        player2Score.text = "Player Two Score: \(game.playerScoreO)"
         }
-    
-    // new game: reset the twoDarray to "_"
     
     @IBAction func playAgain(_ sender: UIButton) {
 
@@ -59,7 +70,7 @@ class ViewController: UIViewController {
             button.isEnabled = true
         }
         print(game.buttonMattrix)
-// i cant play again
+
     }
     
 
