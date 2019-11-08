@@ -25,10 +25,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
         
         boardImage.layer.cornerRadius = 25;
-        // boardImage.clipsToBounds = YES;
         
         player1Score.text = "Player One Score: \(game.playerScoreX)"
         player2Score.text = "Player Two Score: \(game.playerScoreO)"
@@ -40,7 +38,7 @@ class ViewController: UIViewController {
         winning = game.checkWinner()
         
         if game.buttonMattrix.joined().contains("_") {
-            if winning == "" { // no one has won
+            if winning == "" { 
                          playerTurn.text = turn
                    } else {
                      gameButtons.forEach{$0.isEnabled = false}
@@ -51,7 +49,6 @@ class ViewController: UIViewController {
             playerTurn.text = "NO WINNER"
         }
         gameButton.isEnabled = false
-        print(game.buttonMattrix)
         
         player1Score.text = "Player One Score: \(game.playerScoreX)"
         player2Score.text = "Player Two Score: \(game.playerScoreO)"
@@ -62,22 +59,16 @@ class ViewController: UIViewController {
         game.reset()
         turn = ""
         winning = ""
-        // need to check the top label back to "tic tac toe"
         playerTurn.text = "TIC TAC TOE"
-        // need to clear board
         for button in gameButtons {
             button.setBackgroundImage( nil, for: .normal)
             button.isEnabled = true
         }
-        print(game.buttonMattrix)
 
     }
     
 
 }
-
-//TODO:
-// curve the image edges.
 
 
 

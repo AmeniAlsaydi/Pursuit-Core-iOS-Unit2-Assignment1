@@ -11,7 +11,7 @@ import UIKit
 
 class TicTacToeBrain {
     var buttonMattrix = [["_","_","_"],["_","_","_"],["_","_","_"]]
-    var player = 1
+    var player = "X" // change
     var playerScoreX = 0
     var playerScoreO = 0
     
@@ -22,15 +22,16 @@ class TicTacToeBrain {
         let circleImage = UIImage(systemName: "circle", withConfiguration: config)
         var returnLabel: String = ""
                     
-            if player == 1 {
+            if player == "X" {
                 buttonMattrix[gameButton.row][gameButton.col] = "X"
                 gameButton.setBackgroundImage(xmarkImage, for: .normal)
-                player = 2
+                player = "O"
                 returnLabel = "player two turn"
             } else {
                 buttonMattrix[gameButton.row][gameButton.col] = "O"
                 gameButton.setBackgroundImage(circleImage, for: .normal)
-                player = 1
+                player = "X"
+                
                 returnLabel = "player one turn"
             }
             
@@ -44,59 +45,39 @@ class TicTacToeBrain {
         
         for i in 0...2 {
             
-            if buttonMattrix[0][i] == "X" &&
-                buttonMattrix[1][i] == "X" &&
-                buttonMattrix[2][i] == "X" ||
-                buttonMattrix[i][0] == "X" &&
-                buttonMattrix[i][1] == "X" &&
-                buttonMattrix[i][2] == "X" {
-                print(" X wins ")
+            if buttonMattrix[0][i] == "X" && buttonMattrix[1][i] == "X" && buttonMattrix[2][i] == "X" ||
+                buttonMattrix[i][0] == "X" && buttonMattrix[i][1] == "X" && buttonMattrix[i][2] == "X" {
                 winner = "PLAYER ONE WINS 🥳"
                 playerScoreX += 1
                 
             }
             
-            if buttonMattrix[0][i] == "O" &&
-                buttonMattrix[1][i] == "O" &&
-                buttonMattrix[2][i] == "O" ||
-                buttonMattrix[i][0] == "O" &&
-                buttonMattrix[i][1] == "O" &&
-                buttonMattrix[i][2] == "O" {
-                print(" O wins ")
+            if buttonMattrix[0][i] == "O" && buttonMattrix[1][i] == "O" && buttonMattrix[2][i] == "O" ||
+                buttonMattrix[i][0] == "O" && buttonMattrix[i][1] == "O" && buttonMattrix[i][2] == "O" {
                 winner = "PLAYER TWO WINS 🥳"
                 playerScoreO += 1
                 
             }
         }
         
-        if buttonMattrix[0][0] == "X" &&
-            buttonMattrix[1][1] == "X" &&
-            buttonMattrix[2][2] == "X" {
-            print(" X wins ")
+        
+        
+        if buttonMattrix[0][0] == "X" && buttonMattrix[1][1] == "X" && buttonMattrix[2][2] == "X" {
             winner = "PLAYER ONE WINS 🥳"
             playerScoreX += 1
             
-        } else if buttonMattrix[0][0] == "O" &&
-            buttonMattrix[1][1] == "O" &&
-            buttonMattrix[2][2] == "O" {
-            print(" O wins ")
+        } else if buttonMattrix[0][0] == "O" && buttonMattrix[1][1] == "O" && buttonMattrix[2][2] == "O" {
             winner = "PLAYER TWO WINS 🥳"
             playerScoreO += 1
             
         }
             
-        if buttonMattrix[2][0] == "O" &&
-            buttonMattrix[1][1] == "O" &&
-            buttonMattrix[0][2] == "O" {
-            print(" O wins ")
+        if buttonMattrix[2][0] == "O" && buttonMattrix[1][1] == "O" && buttonMattrix[0][2] == "O" {
             winner = "PLAYER TWO WINS 🥳"
             playerScoreO += 1
             
             
-        } else if buttonMattrix[2][0] == "X" &&
-            buttonMattrix[1][1] == "X" &&
-            buttonMattrix[0][2] == "X" {
-            print(" O wins ")
+        } else if buttonMattrix[2][0] == "X" && buttonMattrix[1][1] == "X" && buttonMattrix[0][2] == "X" {
             winner = "PLAYER ONE WINS 🥳"
             playerScoreX += 1
             
@@ -107,7 +88,7 @@ class TicTacToeBrain {
     
     func reset() {
         buttonMattrix = [["_","_","_"],["_","_","_"],["_","_","_"]]
-        player = 1
+        player = "X"
     }
 }
 
